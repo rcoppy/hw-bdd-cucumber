@@ -40,6 +40,18 @@ module HtmlSelectorsHelpers
     when "rating column"
       "td:nth-child(2)"
 
+    when "movie column"
+      "td:nth-child(1)"
+
+    when "release column"
+      "td:nth-child(3)"
+
+    when "movie title"
+      "#title_header"
+
+    when "release date"
+      "#release_date_header"
+
     else
       raise "Can't find mapping from \"#{locator}\" to a selector.\n" +
         "Now, go and add a mapping in #{__FILE__}"

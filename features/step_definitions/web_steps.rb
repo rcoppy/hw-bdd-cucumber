@@ -51,6 +51,23 @@ When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
 end
 
+
+#Given /^(?:|I )check the following ratings: (.+)$/ do |ratings|
+#  ratings.split(",").each do |rating|
+#    check(rating)
+#  end
+#end
+
+Then /^(?:|I )should see the following movies: (.+)$/ do |movies|
+  elements = Capybara::Node::Finders::all(selector_for("movie column"))
+  elements.map! { |a| a.text }
+
+  movies.split(", ").each do |movie|
+    expect(elements).to include movie
+  end
+end
+
+
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end

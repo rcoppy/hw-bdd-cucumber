@@ -23,11 +23,9 @@ Background: movies have been added to database
   Then 10 seed movies should exist
 
 Scenario: sort movies alphabetically
-  When I follow "Movie Title"
-  # your steps here
-  Then complete the rest of of this scenario
+  When I click "Movie Title"
+  Then the movies should display in alphabetical order
 
 Scenario: sort movies in increasing order of release date
-  When I follow "Release Date"
-  # your steps here
-  Then complete the rest of of this scenario
+  When I click "Release Date"
+  Then the movies should display in ascending order of release
