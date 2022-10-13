@@ -32,3 +32,5 @@ group :production do
   gem 'pg', '~> 0.2'
   gem 'rails_12factor'
 end
+
+gem "rspec-expectations", "~> 3.10", :group => :test

@@ -34,6 +34,12 @@ module HtmlSelectorsHelpers
     when /^"(.+)"$/
       $1
 
+    when "refresh"
+      "#ratings_submit"
+
+    when "rating column"
+      "td:nth-child(2)"
+
     else
       raise "Can't find mapping from \"#{locator}\" to a selector.\n" +
         "Now, go and add a mapping in #{__FILE__}"

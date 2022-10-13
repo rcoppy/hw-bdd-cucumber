@@ -24,7 +24,12 @@ Background: movies have been added to database
 
 Scenario: restrict to movies with "PG" or "R" ratings
   And I check the "PG" checkbox
-  Then complete the rest of of this scenario
+  And I check the "R" checkbox
+  And I uncheck the "G" checkbox
+  And I uncheck the "PG-13" checkbox
+  When I press "Refresh"
+  Then the "rating column" element should have the contents "PG" or "R"
+  Then the "rating column" element should not have the contents "G" and "PG-13"
   # enter step(s) to check the "PG" and "R" checkboxes
   # enter step(s) to uncheck all other checkboxes
   # enter step to "submit" the search form on the homepage
